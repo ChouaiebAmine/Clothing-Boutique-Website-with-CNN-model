@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(5deg, #a3a3a3 20%,#c7c7c7 60%, #ffffff 100%);
+    background: linear-gradient(5deg, #a3a3a3 20%, #c7c7c7 60%, #ffffff 100%);
     background-repeat: no-repeat;
     object-fit: fill;
     background-size: 120%;
@@ -159,4 +159,13 @@ img:hover {
     100% {
         background-position: 96% 0%
     }
+}
+#drop_zone {
+    border-radius: 15px;
+    background-color: rgb(177, 177, 177);
+    border: 2px solid rgb(66, 66, 66);
+    padding: 5px;
+    text-align: center;
+    width: 300px;
+    margin: auto;
 }
