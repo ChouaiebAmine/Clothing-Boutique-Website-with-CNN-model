@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from './header';
+import Header from './Header';
 import DisplayMode from './display_mode';
 import Footer from './footer';
 import SearchBar from './searchbar'
