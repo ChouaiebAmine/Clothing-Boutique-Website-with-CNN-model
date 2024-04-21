@@ -2,17 +2,17 @@
     display: flex;
 
     justify-content: center;
-    margin-top: 100px; /* Adjust margin as needed */
+    margin-top: 100px; 
   }
   
 .search-input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 300px; /* Adjust width as needed */
+    width: 300px; 
 }
   
-  /* Dark mode styles */
+ 
 .dark-mode {
     background-color: #333;
     color: #fff;
@@ -24,7 +24,7 @@
     cursor: pointer;
 }
 .search-button i {
-    color: #000000; /* Adjust icon color */
-    font-size: 18px; /* Adjust icon size */
+    color: #000000; 
+    font-size: 18px; 
     padding: 5px;
   }
