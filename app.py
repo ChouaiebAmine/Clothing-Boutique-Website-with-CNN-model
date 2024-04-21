@@ -1,22 +1,25 @@
 from flask import Flask, render_template, flash, request
 import picturesRandomizer
-from PIL import Image
-import base64
-import io
-
+import os
 # Create a Flask application instance
 app = Flask(__name__, template_folder="template")
 
 
+
+# remove pictures if there are any
+try:
+    for i in range(1,10):
+        os.remove('static/images/'+str(i)+'.png')
+except:
+    pass
+# make 9 random images to display at first in the grid
+for i in range(1, 10):
+    picturesRandomizer.get_clothing_piece(i)
+
 # Define a route for the root URL
 @app.route("/")
 def index():
-    im = picturesRandomizer.get_clothing_piece()
-    
-    data = io.BytesIO()
-    im.save(data, "JPEG")
-    encim = base64.b64encode(data.getvalue())
-    return render_template("index.html",img_data=encim.decode('utf-8'))
+    return render_template("index.html")
 
 
 """@app.route("/welcome", methods=["POST", "GET"])
