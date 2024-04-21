@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/static/images
+/fashion-mnist_test.csv
+/fashion-mnist_train.csv
