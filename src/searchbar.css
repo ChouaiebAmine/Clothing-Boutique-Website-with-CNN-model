@@ -1,0 +1,30 @@
+.search-container {
+    display: flex;
+
+    justify-content: center;
+    margin-top: 100px; /* Adjust margin as needed */
+  }
+  
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px; /* Adjust width as needed */
+}
+  
+  /* Dark mode styles */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.search-button i {
+    color: #000000; /* Adjust icon color */
+    font-size: 18px; /* Adjust icon size */
+    padding: 5px;
+  }

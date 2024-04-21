@@ -1,13 +1,13 @@
 import React from 'react';
-import './Header.css';
+import './Header.css'
 
 const Header = () => {
   return (
-    <header className="header navbar navbar-dark bg-dark">
-        <div className="container">
-            <span className="navbar-brand mb-0 h1">FashionWebsite</span>
-        </div>
-    </header>
+    <header className="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom">
+    <div className="container-fluid text-center ">
+      <a className="navbar-brand text-center w-100 border-radius" href="#">Fashion Website</a>
+    </div>
+  </header>
   );
 };
 

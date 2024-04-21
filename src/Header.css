@@ -1,13 +1,12 @@
 .header {
-    background-color: #333333;
-    color: #ffffff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
+  color : white;
+  background-color: #ffffff; 
+  border-bottom: 4px solid #000000; 
+  padding: 10px 0; 
+  position: fixed; 
+  top: 0; 
+  height : 60px;
+  width: 100%; 
+  z-index: 1000; 
+  border-radius : 20px;
+}

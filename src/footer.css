@@ -1,0 +1,15 @@
+.footer {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Light text color */
+    padding: 20px 0; /* Add padding to the footer */
+    text-align: center; /* Center-align text */
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure container fills the viewport height */
+  }
+.content {
+    flex-grow : 1;
+}

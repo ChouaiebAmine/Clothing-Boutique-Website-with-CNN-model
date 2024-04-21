@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Header from './header';
 import DisplayMode from './display_mode';
-import Header from './Header'; 
+import Footer from './footer';
+import SearchBar from './searchbar'
 import './App.css';
 
 const App = () => {
@@ -11,12 +13,25 @@ const App = () => {
   };
 
   return (
-    <div className={`app ${theme}`}>
-      <Header /> {}
-      <DisplayMode theme={theme} toggleTheme={toggleTheme} />
-      {}
+    <div>
+      <Header />
+      <SearchBar theme ={theme}/>
+      <div className="theme-toggler-container">
+        <DisplayMode theme={theme} toggleTheme={toggleTheme} />
+      </div>
+      <div className={`app ${theme}`}>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-lg-6 col-md-8">
+              {/* Content goes here */}
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };
 
 export default App;
+

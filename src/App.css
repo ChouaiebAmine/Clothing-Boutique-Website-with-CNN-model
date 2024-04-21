@@ -8,9 +8,19 @@
   color: #ffffff; 
 }
 
- .app {
-  padding: 100%;
+.app {
+  padding:100%;
   background-color: #ffffff; 
   color: #000000; 
-
+  padding-top: 100px; /* Adjust the top padding to make space for the header */
 }
+
+
+.theme-toggler-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+

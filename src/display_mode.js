@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ToggleContainer = styled.div`
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   z-index: 9999;
@@ -32,10 +32,11 @@ const Slider = styled.span`
   width: 23px;
   height: 23px;
   border-radius: 45px;
-  transition: left 0.3s;
+  transition: left 0.4s;
   background: #fff;
   box-shadow: 0 2px 5px #000000b3;
 `;
+
 
 const DisplayMode = ({ theme, toggleTheme }) => {
   return (
