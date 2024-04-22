@@ -1,13 +1,12 @@
 import React from 'react';
-import './Header.css'
+import './Header.css';
 
-const Header = () => {
+const Header = ({ theme }) => {
   return (
-    <header className="navbar navbar-expand-lg navbar-dark bg-dark rounded-bottom">
-    <div className="container-fluid text-center ">
-      <a className="navbar-brand text-center w-100 border-radius" href="#">Fashion Website</a>
-    </div>
-  </header>
+    <section className={`wrapper ${theme === 'light' ? 'light' : 'dark'}`}>
+      <div className="top">Fashion</div>
+      <div className="bottom" aria-hidden="true">Fashion</div>
+    </section>
   );
 };
 

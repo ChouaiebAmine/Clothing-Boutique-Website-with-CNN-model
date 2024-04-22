@@ -9,15 +9,16 @@
 }
 
 .app {
-  padding:100%;
   background-color: #ffffff; 
   color: #000000; 
+  padding-top: 100px; 
   padding-top: 100px;
+
 }
 
 
 .theme-toggler-container {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   z-index: 9999;
