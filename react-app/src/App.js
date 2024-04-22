@@ -18,8 +18,7 @@ const App = () => {
 
       <Header theme = {theme}/>
       <SearchBar theme={theme} />
-      <ImageUpload />
-
+      <ImageUpload theme = {theme} />
       <div className={`app ${theme}`}>
         <div className="container">
           <div className="row justify-content-center">

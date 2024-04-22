@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './ImageUpload.css';
 import styled from "styled-components"
 
-const ImageContainer = styled.div `
+const ImageContainer = styled.div`
     background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
     color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `;
 
-const ImageUpload = () => {
+const ImageUpload = ({ theme }) => {
   const [image, setImage] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
 
@@ -35,43 +35,43 @@ const ImageUpload = () => {
     setUploadedImage(null);
   };
 
-  const ImageUpload =( {theme}) => {
-    return (
-        <div className="image-upload-container">
-          <input
-            id="upload-input"
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-            style={{ display: 'none' }}
-          />
-          <label
-            htmlFor="upload-input"
-            className="image-upload-dropzone"
-            onDrop={handleImageDrop}
-            onDragOver={handleDragOver}
-          >
-            {!uploadedImage && !image && (
-              <p>Drag & drop or click to upload an image</p>
-            )}
-            {uploadedImage && (
-              <img src={URL.createObjectURL(uploadedImage)} alt="Uploaded" style={{ maxWidth: '100%' }} />
-            )}
-            {image && !uploadedImage && (
-              <img src={URL.createObjectURL(image)} alt="Selected" style={{ maxWidth: '100%' }} />
-            )}
-          </label>
-          {image && !uploadedImage && (
-            <button onClick={handleConfirmUpload}>Confirm Upload</button>
+  return (
+    <ImageContainer theme={theme}>
+      <div className="image-upload-container">
+        <input
+          id="upload-input"
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
+          style={{ display: 'none' }}
+        />
+        <label
+          htmlFor="upload-input"
+          className="image-upload-dropzone"
+          onDrop={handleImageDrop}
+          onDragOver={handleDragOver}
+        >
+          {!uploadedImage && !image && (
+            <p>Drag & drop or click to upload an image</p>
           )}
           {uploadedImage && (
-            <button onClick={handleRemoveImage}>Remove Image</button>
+            <img src={URL.createObjectURL(uploadedImage)} alt="Uploaded" style={{ maxWidth: '100%' }} />
           )}
-        </div>
-      );
-  };
-  
+          {image && !uploadedImage && (
+            <img src={URL.createObjectURL(image)} alt="Selected" style={{ maxWidth: '100%' }} />
+          )}
+        </label>
+        {image && !uploadedImage && (
+          <button onClick={handleConfirmUpload}>Confirm Upload</button>
+        )}
+        {uploadedImage && (
+          <button onClick={handleRemoveImage}>Remove Image</button>
+        )}
+      </div>
+    </ImageContainer>
+  );
 };
 
 export default ImageUpload;
+
 
