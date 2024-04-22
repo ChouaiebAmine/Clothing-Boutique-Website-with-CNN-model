@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div>
-      <Header />
+      <Header /> 
       <SearchBar theme ={theme}/> 
       <div className="theme-toggler-container">
         <DisplayMode theme={theme} toggleTheme={toggleTheme} />
