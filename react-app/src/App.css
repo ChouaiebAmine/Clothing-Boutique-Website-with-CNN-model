@@ -1,0 +1,26 @@
+.app.light {
+  background-color: #ffffff; 
+  color: #000000; 
+}
+
+.app.dark {
+  background-color: #222222; 
+  color: #ffffff; 
+}
+
+.app {
+  padding:100%;
+  background-color: #ffffff; 
+  color: #000000; 
+  padding-top: 100px;
+}
+
+
+.theme-toggler-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+
