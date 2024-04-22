@@ -24,3 +24,4 @@ yarn-error.log*
 /static/images
 /fashion-mnist_test.csv
 /fashion-mnist_train.csv
+/react-app/node_modules
