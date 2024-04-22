@@ -1,0 +1,34 @@
+
+.image-upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+  }
+  
+  .image-upload-dropzone {
+    width: 300px; 
+    height: 200px; 
+    border: 2px dashed #aaaaaa;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .image-upload-dropzone span {
+    font-size: 16px;
+    color: #aaaaaa;
+  }
+  
+  .light-theme {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .dark-theme {
+    background-color: #222222;
+    color: #ffffff;
+  }
+  
