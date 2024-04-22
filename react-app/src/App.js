@@ -15,16 +15,10 @@ const App = () => {
 
   return (
     <div>
-<<<<<<< HEAD
 
       <Header theme = {theme}/>
       <SearchBar theme={theme} />
       <ImageUpload theme = {theme} />
-=======
-      <Header theme = {theme}/>
-      <SearchBar theme={theme} />
-      <ImageUpload />
->>>>>>> 11f23dd8ca79327e7fdc9ead6a294ea1fbb3357e
       <div className={`app ${theme}`}>
         <div className="container">
           <div className="row justify-content-center">
