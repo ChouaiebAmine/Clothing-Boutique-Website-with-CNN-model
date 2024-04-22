@@ -15,17 +15,11 @@ const App = () => {
 
   return (
     <div>
-<<<<<<< HEAD:src/App.js
+
       <Header theme = {theme}/>
       <SearchBar theme={theme} />
       <ImageUpload />
-=======
-      <Header /> 
-      <SearchBar theme ={theme}/> 
-      <div className="theme-toggler-container">
-        <DisplayMode theme={theme} toggleTheme={toggleTheme} />
-      </div>
->>>>>>> 1bc59e173013dd97deec7c6a10cba75619a68577:react-app/src/App.js
+
       <div className={`app ${theme}`}>
         <div className="container">
           <div className="row justify-content-center">
