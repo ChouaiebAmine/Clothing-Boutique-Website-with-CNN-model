@@ -1,25 +1,45 @@
 from flask import Flask, render_template, flash, request
 import picturesRandomizer
 import os
+import random
+
 # Create a Flask application instance
 app = Flask(__name__, template_folder="template")
 
 
-
-# remove pictures if there are any
-try:
-    for i in range(1,10):
-        os.remove('static/images/'+str(i)+'.png')
-except:
-    pass
 # make 9 random images to display at first in the grid
-for i in range(1, 10):
-    picturesRandomizer.get_clothing_piece(i)
+classes = [
+    # "ankle boot",
+    "bag",
+    # "coat",
+    "dress",
+    # "pullover",
+    "sandal",
+    "shirt",
+    # "sneakers",
+    "t shirt",
+    "trouser",
+]
 
 # Define a route for the root URL
 @app.route("/")
 def index():
-    return render_template("index.html")
+    imgs = []
+    imnames = []
+    for i in range(0, 9):
+        randclass = random.randint(0, 5)
+        randpic=random.randint(1,100)
+        imgs.append(
+            "static/images/"
+            + str(classes[randclass])
+            + "/"
+            + str(classes[randclass])
+            + " ("
+            + str(randpic)
+            + ").jpg"
+        )
+        imnames.append(str(classes[randclass]) + " (" + str(randpic) + ")")
+    return render_template("index.html", im_info=zip(imgs, imnames))
 
 
 """@app.route("/welcome", methods=["POST", "GET"])
