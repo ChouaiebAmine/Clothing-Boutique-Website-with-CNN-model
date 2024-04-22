@@ -2,3 +2,5 @@
 /fashion-mnist_train.csv
 /static/images
 node_modules
+/cnn_clothing_model/fashion-mnist_test.csv
+/cnn_clothing_model/fashion-mnist_train.csv
