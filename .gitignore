@@ -1,2 +1,4 @@
 /fashion-mnist_test.csv
 /fashion-mnist_train.csv
+node_modules
+/static/images
