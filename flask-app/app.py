@@ -22,9 +22,9 @@ classes = [
 ]
 #test
 # Define a route for the root URL
-@app.route("/")
+@app.route("/index")
 def index():
-    imgs = []
+    """imgs = []
     imnames = []
     for i in range(0, 9):
         randclass = random.randint(0, 5)
@@ -39,13 +39,8 @@ def index():
             + ").jpg"
         )
         imnames.append(str(classes[randclass]) + " (" + str(randpic) + ")")
-    return render_template("index.html", im_info=zip(imgs, imnames))
-
-
-"""@app.route("/welcome", methods=["POST", "GET"])
-def greet():
-    return render_template("index.html")
-"""
+    return render_template("index.html", im_info=zip(imgs, imnames))"""
+    return{"qslkjd":"sqd"}
 
 # Run the Flask application
 if __name__ == "__main__":
