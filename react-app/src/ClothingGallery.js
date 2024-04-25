@@ -16,10 +16,10 @@ const ClothingList = styled.div`
 `;
 
 const clothingData = [
-  { id: 1, imageUrl: './logo192.png', name: 'Clothing Item 1' },
-  { id: 2, imageUrl: './logo192.png', name: 'Clothing Item 2' },
-  { id: 3, imageUrl: './logo192.png', name: 'Clothing Item 3' },
-  { id: 4, imageUrl: './logo192.png', name: 'Clothing Item 4' },
+  { id: 1, imageUrl: './tshirt.jpg', name: 'Clothing Item 1' },
+  { id: 2, imageUrl: './tshirt.jpg', name: 'Clothing Item 2' },
+  { id: 3, imageUrl: './tshirt.jpg', name: 'Clothing Item 3' },
+  { id: 4, imageUrl: './tshirt.jpg', name: 'Clothing Item 4' },
 
 ];
 

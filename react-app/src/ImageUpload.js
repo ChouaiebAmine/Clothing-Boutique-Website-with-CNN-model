@@ -64,11 +64,15 @@ const ImageUpload = ({ theme }) => {
         {image && !uploadedImage && (
           <button onClick={handleConfirmUpload}>Confirm Upload</button>
         )}
+        
         {uploadedImage && (
           <button onClick={handleRemoveImage}>Remove Image</button>
+
         )}
       </div>
     </ImageContainer>
+
+
   );
 };
 
