@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const ImageContainer = styled.div`
     background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
     color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
-    padding-top: 30px; /* Adjust as needed */
+    padding-top: 90px; /* Adjust as needed */
 `;
 
 const ClothingList = styled.div`
@@ -20,6 +20,8 @@ const clothingData = [
   { id: 2, imageUrl: './tshirt.jpg', name: 'Clothing Item 2' },
   { id: 3, imageUrl: './tshirt.jpg', name: 'Clothing Item 3' },
   { id: 4, imageUrl: './tshirt.jpg', name: 'Clothing Item 4' },
+  { id: 5, imageUrl: './tshirt.jpg', name: 'Clothing Item 3' },
+  { id: 6, imageUrl: './tshirt.jpg', name: 'Clothing Item 4' },
 
 ];
 
