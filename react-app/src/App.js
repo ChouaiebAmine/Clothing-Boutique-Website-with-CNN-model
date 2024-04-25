@@ -31,6 +31,7 @@ const App = () => {
       <Header theme={theme} />
       <SearchBar theme={theme} />
       <ImageUpload theme={theme} />
+      <ImageUploadForm/> {}
       <div className={`app ${theme}`}>
         <div className="container">
           <div className="row justify-content-center">
