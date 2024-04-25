@@ -25,5 +25,5 @@ yarn-error.log*
 /fashion-mnist_test.csv
 /fashion-mnist_train.csv
 /flask-app/__pycache__
-/react-app/node_modules
 /flask-app/static/images
+/react-app/node_modules
