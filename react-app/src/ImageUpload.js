@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ImageUpload.css';
 import styled from "styled-components"
-
+import axios from 'axios';
 const ImageContainer = styled.div`
     background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
     color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
@@ -28,6 +28,12 @@ const ImageUpload = ({ theme }) => {
 
   const handleConfirmUpload = () => {
     setUploadedImage(image);
+    const formdata=new FormData()
+    formdata.append('image',image)
+    axios.post('http://localhost:5000/img_upload', image)
+      .then(res => {
+        console.log(res)
+      })
     setImage(null);
   };
 
@@ -63,16 +69,15 @@ const ImageUpload = ({ theme }) => {
         </label>
         {image && !uploadedImage && (
           <button onClick={handleConfirmUpload}>Confirm Upload</button>
+
         )}
-        
+
         {uploadedImage && (
           <button onClick={handleRemoveImage}>Remove Image</button>
 
         )}
       </div>
     </ImageContainer>
-
-
   );
 };
 
