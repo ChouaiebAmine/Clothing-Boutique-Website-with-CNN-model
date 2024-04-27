@@ -1,0 +1,40 @@
+import React from 'react';
+import ClothingItem from './ClothingItem';
+import styled from 'styled-components';
+
+const ImageContainer = styled.div`
+    background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
+    color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+    padding-top: 90px; /* Adjust as needed */
+`;
+
+const ClothingList = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust the gap between items */
+    justify-content: center; /* Align items in the center */
+`;
+
+const clothingData = [
+  { id: 1, imageUrl: './tshirt.jpg', name: 'Clothing Item 1' },
+  { id: 2, imageUrl: './tshirt.jpg', name: 'Clothing Item 2' },
+  { id: 3, imageUrl: './tshirt.jpg', name: 'Clothing Item 3' },
+  { id: 4, imageUrl: './tshirt.jpg', name: 'Clothing Item 4' },
+  { id: 5, imageUrl: './tshirt.jpg', name: 'Clothing Item 3' },
+  { id: 6, imageUrl: './tshirt.jpg', name: 'Clothing Item 4' },
+
+];
+
+const ClothingGallery = ({ theme }) => {
+  return (
+    <ImageContainer theme = {theme}>
+      <ClothingList>
+        {clothingData.map((item) => (
+          <ClothingItem key={item.id} imageUrl={item.imageUrl} name={item.name} />
+        ))}
+      </ClothingList>
+    </ImageContainer>
+  );
+};
+
+export default ClothingGallery;
