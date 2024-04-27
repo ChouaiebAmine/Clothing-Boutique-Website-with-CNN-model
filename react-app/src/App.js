@@ -14,18 +14,18 @@ function App() {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };*/
   const [data, setData] = useState(0)
+  const [array, setArray] = useState([]);
+
+
   const fetchAPI = async () => {
     const res = await axios.get("http://127.0.0.1:5000")
-    console.log(res.data.test);
+    console.log(res.data.data);
+    setArray(res.data.data);
   };
   useEffect(() => {
     fetchAPI();
   }, []);
-  /*useEffect(() => {
-    axios.get("http://127.0.0.1:5000").then(
-      res => {setData(res.data.data);}
-      )
-    },[]);*/
+
   return (
     /*<div>
       <Header theme={theme} />
@@ -49,17 +49,13 @@ function App() {
       <Footer />
     </div>*/
     <div>
-
-      {(typeof data.test) === 'undefined' ? (
-        <p>wait</p>
-      ) : (
-        data.test.map((wa, i) => (
-          <p key={i}>{wa}</p>
-        ))
-      )}
+      {array.map((x, i) => (
+        <p>{x}</p>
+      ))
+      }
+      <img src={path}/>
     </div>
   );
 };
 
 export default App;
-

@@ -1,14 +1,26 @@
-from flask import Flask, render_template, flash, request, jsonify, send_from_directory
+from flask import (
+    Flask,
+    send_file,
+    request,
+    jsonify,
+)
 import picturesRandomizer
 import os
 import random
 from flask_cors import CORS
+import modules
+
+from matplotlib.backends.backend_agg import FigureCanvasAgg
+from matplotlib.figure import Figure
+from io import BytesIO
+import base64
+from PIL import Image
 
 # Create a Flask application instance
 app = Flask(__name__)
-cors=CORS(app,origins='*')
+cors = CORS(app, origins="*")
 # make 9 random images to display at first in the grid
-"""classes = [
+classes = [
     # "ankle boot",
     "bag",
     # "coat",
@@ -19,31 +31,21 @@ cors=CORS(app,origins='*')
     # "sneakers",
     "t shirt",
     "trouser",
-]"""
+]
 
 
 # test
 # Define a route for the root URL
 @app.route("/", methods=["GET"])
 def index():
-    """imgs = []
-    m = Markup("<p>helooooooooo<p>")
-    imnames = []
-    for i in range(0, 9):
-        randclass = random.randint(0, 5)
-        randpic = random.randint(1, 100)
-        imgs.append(
-            "static/images/"
-            + str(classes[randclass])
-            + "/"
-            + str(classes[randclass])
-            + " ("
-            + str(randpic)
-            + ").jpg"
-        )
-        imnames.append(str(classes[randclass]) + " (" + str(randpic) + ")")
-    # render_template("template/build/index.html",m=m, im_info=zip(imgs, imnames))"""
-    return jsonify({"test": ["wa1", "wa2", "wa3"]})
+    return jsonify({"data":[1, 2, 3]})
+
+@app.route("/image",methods=['GET'])
+def image():
+    #filename = 'static/images/bag/bag (1).jpg'
+    basename = os.path.basename(__file__)
+    filepath = os.path.join(basename, '..', 'static', )
+    return jsonify(filepath)
 
 
 # Run the Flask application
