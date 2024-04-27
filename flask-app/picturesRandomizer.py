@@ -6,5 +6,5 @@ def get_clothing_piece(classes):
         piece=classes[randint(0,5)]
         rand_img_path="/static/images/"+str(piece)+"/"+str(piece)+" ("+str(randint(1,100))+").jpg"
         cwd=os.getcwd()
-        im = Image.open(cwd+"/flask-app"+rand_img_path)
-        im.save(cwd+"/flask-app/static/images/grid images/img("+str(i)+").jpg",format='JPEG')
+        im = Image.open(cwd+rand_img_path)
+        im.save("static/images/grid images/img("+str(i)+").jpg",format='JPEG')

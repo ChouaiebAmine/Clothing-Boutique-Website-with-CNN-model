@@ -14,7 +14,6 @@ const ClothingList = styled.div`
     gap: 20px; /* Adjust the gap between items */
     justify-content: center; /* Align items in the center */
 `;
-
 const clothingData = [
   { id: 1, imageUrl: "http://127.0.0.1:5000/image/img(1).jpg", name: 'Clothing Item 1' },
   { id: 2, imageUrl: "http://127.0.0.1:5000/image/img(2).jpg", name: 'Clothing Item 2' },
@@ -25,16 +24,17 @@ const clothingData = [
   { id: 7, imageUrl: "http://127.0.0.1:5000/image/img(7).jpg", name: 'Clothing Item 7' },
   { id: 8, imageUrl: "http://127.0.0.1:5000/image/img(8).jpg", name: 'Clothing Item 8' },
   { id: 9, imageUrl: "http://127.0.0.1:5000/image/img(9).jpg", name: 'Clothing Item 9' },
-
+  { id: 10, imageUrl: "http://127.0.0.1:5000/image/img(10).jpg", name: 'Clothing Item 10' },
 ];
 
 const ClothingGallery = ({ theme }) => {
   return (
-    <ImageContainer theme = {theme}>
+    <ImageContainer theme={theme}>
       <ClothingList>
         {clothingData.map((item) => (
           <ClothingItem key={item.id} imageUrl={item.imageUrl} name={item.name} />
-        ))}
+        ))
+        }
       </ClothingList>
     </ImageContainer>
   );

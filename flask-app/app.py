@@ -6,13 +6,13 @@ from flask import (
     send_from_directory,
     json,
     Response,
+    redirect,
 )
-import picturesRandomizer
 import os
-import random
+import time
+import picturesRandomizer
 from flask_cors import CORS
-import modules
-from io import BytesIO
+import shutil
 
 # Create a Flask application instance
 app = Flask(__name__)
@@ -31,20 +31,31 @@ classes = [
     "trouser",
 ]
 
+picturesRandomizer.get_clothing_piece(classes)
+
 
 # Define a route for the root URL
+
+
 @app.route("/", methods=["GET"])
 def index():
     return jsonify({"data": [1, 2, 3]})
 
+@app.route("/image/", methods=["GET"])
+def image():
+    return jsonify(
+        {
+            "urls": [
+                "http://127.0.0.1:5000/image/img(" + str(i) + ").jpg"
+                for i in range(1, 11)
+            ]
+        }
+    )
+
 
 @app.route("/image/<filename>", methods=["GET"])
-def image(filename):
-    modules.getRandomImageGrid(classes)
-    return send_from_directory(
-        directory="static/images/grid images",
-        path=filename
-    )
+def images(filename):
+    return send_from_directory(directory="static/images/grid images/", path=filename)
 
 
 # Run the Flask application
