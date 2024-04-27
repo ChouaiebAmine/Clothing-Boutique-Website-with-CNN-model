@@ -3,18 +3,16 @@ from flask import (
     send_file,
     request,
     jsonify,
+    send_from_directory,
+    json,
+    Response,
 )
 import picturesRandomizer
 import os
 import random
 from flask_cors import CORS
 import modules
-
-from matplotlib.backends.backend_agg import FigureCanvasAgg
-from matplotlib.figure import Figure
 from io import BytesIO
-import base64
-from PIL import Image
 
 # Create a Flask application instance
 app = Flask(__name__)
@@ -34,18 +32,19 @@ classes = [
 ]
 
 
-# test
 # Define a route for the root URL
 @app.route("/", methods=["GET"])
 def index():
-    return jsonify({"data":[1, 2, 3]})
+    return jsonify({"data": [1, 2, 3]})
 
-@app.route("/image",methods=['GET'])
-def image():
-    #filename = 'static/images/bag/bag (1).jpg'
-    basename = os.path.basename(__file__)
-    filepath = os.path.join(basename, '..', 'static', )
-    return jsonify(filepath)
+
+@app.route("/image/<filename>", methods=["GET"])
+def image(filename):
+    modules.getRandomImageGrid(classes)
+    return send_from_directory(
+        directory="static/images/grid images",
+        path=filename
+    )
 
 
 # Run the Flask application

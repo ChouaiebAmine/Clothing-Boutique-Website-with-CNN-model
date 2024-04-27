@@ -17,22 +17,12 @@ function App() {
   const [data, setData] = useState(0)
   const [array, setArray] = useState([]);
 
-
-  const fetchAPI = async () => {
-    const res = await axios.get("http://127.0.0.1:5000")
-    console.log(res.data.data);
-    setArray(res.data.data);
-  };
-  useEffect(() => {
-    fetchAPI();
-  }, []);
-
   return (
     <div>
       <Header theme={theme} />
       <SearchBar theme={theme} />
       <ImageUpload theme={theme} />
-      <ClothingGallery  theme = {theme}/>
+      <ClothingGallery theme={theme} />
       <div className={`app ${theme}`}>
         <div className="container">
           <div className="row justify-content-center">
@@ -45,23 +35,21 @@ function App() {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>*/
-    <div>
-      {array.map((x, i) => (
-        <p>{x}</p>
-      ))
+      <div>
+      {
       }
-      <img src={path}/>
-    
+    </div >
+      <Footer />
+    </div>
+
+    /*
       {(typeof data.test) === 'undefined' ? (
         <p>wait</p>
       ) : (
         data.test.map((wa, i) => (
           <p key={i}>{wa}</p>
         ))
-      )}
-    </div>
+      )} */
   );
 };
 
