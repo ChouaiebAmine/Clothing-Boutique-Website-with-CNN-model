@@ -9,7 +9,6 @@ const ImageContainer = styled.div`
 
 const ImageUpload = ({ theme }) => {
   const [image, setImage] = useState(null);
-  const [uploadedImage, setUploadedImage] = useState(null);
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
@@ -27,18 +26,16 @@ const ImageUpload = ({ theme }) => {
   };
 
   const handleConfirmUpload = () => {
-    setUploadedImage(image);
-    const formdata=new FormData()
-    formdata.append('image',image)
-    axios.post('http://localhost:5000/img_upload', image)
+    const formdata = new FormData();
+    formdata.append('image', image);
+    axios.post('http://localhost:5000/img_upload', formdata)
       .then(res => {
-        console.log(res)
+        console.log(res);
       })
+      .catch(error => {
+        console.error('Error uploading image:', error);
+      });
     setImage(null);
-  };
-
-  const handleRemoveImage = () => {
-    setUploadedImage(null);
   };
 
   return (
@@ -57,30 +54,21 @@ const ImageUpload = ({ theme }) => {
           onDrop={handleImageDrop}
           onDragOver={handleDragOver}
         >
-          {!uploadedImage && !image && (
+          {!image && (
             <p>Drag & drop or click to upload an image</p>
           )}
-          {uploadedImage && (
-            <img src={URL.createObjectURL(uploadedImage)} alt="Uploaded" style={{ maxWidth: '100%' }} />
-          )}
-          {image && !uploadedImage && (
+          {image && (
             <img src={URL.createObjectURL(image)} alt="Selected" style={{ maxWidth: '100%' }} />
           )}
         </label>
-        {image && !uploadedImage && (
+        {image && (
           <button onClick={handleConfirmUpload}>Confirm Upload</button>
-
-        )}
-
-        {uploadedImage && (
-          <button onClick={handleRemoveImage}>Remove Image</button>
-
         )}
       </div>
     </ImageContainer>
   );
 };
-
+  
 export default ImageUpload;
 
 

@@ -22,7 +22,7 @@ app = Flask(__name__)
 cors = CORS(app, origins="*")
 UPLOAD_FOLDER = 'uploads/'
 app.config['UPLOAD_FOLDER']=UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.config['MAX_CONTENT_LENGTH'] = 32 * 1024 * 1024 
 app.config['ALLOWED_EXTENSIONS'] = ['.jpg', '.jpeg', '.png', '.gif']
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 # make 9 random images to display at first in the grid
@@ -73,25 +73,25 @@ def index():
     return ' ' 
     """
 @app.route('/img_upload', methods=['POST'])
-def upload_file():
-    try:
-        file = request.files['file']
-        print(file.filename)
-        if file:
-            extension = os.path.splitext(file.filename)[1].lower()
 
-        if extension not in app.config['ALLOWED_EXTENSIONS']:
-            return 'File is not an image.'
-        print(file.filename)
-        file.save(os.path.join(
-            app.config['UPLOAD_FOLDER'],
-            secure_filename(file.filename)
-        ))
-  
-    except RequestEntityTooLarge:
-        return 'File is larger than the 16MB limit.'
-  
-    return jsonify({'yo':'upload mregel'})
+def upload_file():
+    if request.method == 'POST':
+
+        if 'file' not in request.files:
+            return 'No file part'
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if file.filename == '':
+            return 'No selected file'
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return 'File uploaded successfully'
+        else:
+            return 'Invalid file type'
+    else:
+        return 'Method not allowed'
 #--------------------------------------------------
 @app.route("/", methods=["GET"])
 def index():
