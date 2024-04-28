@@ -1,10 +1,17 @@
-import matplotlib.pyplot as plt
-import random
-import pandas as pd
-
-
-def get_clothing_piece(x):
-    df = pd.read_csv("fashion-mnist_train.csv").values  # get images
-    i = random.randint(1, 60000)  # select any random image from 1 to 60,000
-    im = df[i, 1:].reshape((28, 28))  # reshape it from array to 28x28 matrix
-    plt.imsave("static/images/" + str(x) + ".png", im, cmap="gray")  # save image
+from random import randint
+from PIL import Image
+import os
+def get_clothing_piece(classes):
+    for i in range(1,11):
+        piece=classes[randint(0,5)]
+        rand_img_path="/static/images/"+str(piece)+"/"+str(piece)+" ("+str(randint(1,100))+").jpg"
+        cwd=os.getcwd()
+        im = Image.open(cwd+rand_img_path)
+        im.save("static/images/grid images/img("+str(i)+").jpg",format='JPEG')
+def make_predicted_pics(predicted_class,classes):
+    for i in range(1,11):
+        piece=classes[randint(0,5)]
+        rand_img_path="/static/images/"+str(piece)+"/"+str(piece)+" ("+str(randint(1,100))+").jpg"
+        cwd=os.getcwd()
+        im = Image.open(cwd+rand_img_path)
+        im.save("static/images/grid images/img("+str(i)+").jpg",format='JPEG')

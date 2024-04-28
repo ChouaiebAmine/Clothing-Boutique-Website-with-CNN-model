@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ImageUpload.css';
 import styled from "styled-components"
-
+import axios from 'axios';
 const ImageContainer = styled.div`
     background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
     color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
@@ -9,7 +9,6 @@ const ImageContainer = styled.div`
 
 const ImageUpload = ({ theme }) => {
   const [image, setImage] = useState(null);
-  const [uploadedImage, setUploadedImage] = useState(null);
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
@@ -27,21 +26,27 @@ const ImageUpload = ({ theme }) => {
   };
 
   const handleConfirmUpload = () => {
-    setUploadedImage(image);
+    const formdata = new FormData();
+    formdata.append('image', image);
+    axios.post('http://localhost:5000/img_upload', formdata)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.error('Error uploading image:', error);
+      });
     setImage(null);
-  };
-
-  const handleRemoveImage = () => {
-    setUploadedImage(null);
   };
 
   return (
     <ImageContainer theme={theme}>
+      <p>make sure the image doesn't have anything in the background and the clothing piece is centered</p>
       <div className="image-upload-container">
         <input
           id="upload-input"
           type="file"
           accept="image/*"
+          name='file'
           onChange={handleImageChange}
           style={{ display: 'none' }}
         />
@@ -51,31 +56,21 @@ const ImageUpload = ({ theme }) => {
           onDrop={handleImageDrop}
           onDragOver={handleDragOver}
         >
-          {!uploadedImage && !image && (
+          {!image && (
             <p>Drag & drop or click to upload an image</p>
           )}
-          {uploadedImage && (
-            <img src={URL.createObjectURL(uploadedImage)} alt="Uploaded" style={{ maxWidth: '100%' }} />
-          )}
-          {image && !uploadedImage && (
+          {image && (
             <img src={URL.createObjectURL(image)} alt="Selected" style={{ maxWidth: '100%' }} />
           )}
         </label>
-        {image && !uploadedImage && (
+        {image && (
           <button onClick={handleConfirmUpload}>Confirm Upload</button>
-        )}
-        
-        {uploadedImage && (
-          <button onClick={handleRemoveImage}>Remove Image</button>
-
         )}
       </div>
     </ImageContainer>
-
-
   );
 };
-
+  
 export default ImageUpload;
 
 
