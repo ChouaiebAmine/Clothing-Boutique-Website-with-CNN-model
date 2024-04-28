@@ -48,12 +48,12 @@ picturesRandomizer.get_clothing_piece(classes)
 def index():
     return jsonify()"""
 #--------------------------------------------------
-@app.route('/img_upload', methods=['POST'])
-def upload_file():
+
+"""def upload_file():
     if request.method == 'POST':
         f = request.files['file']
         f.save(f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename))))
-    return 'file uploaded successfully'
+    return 'file uploaded successfully'"""
 """def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -72,8 +72,8 @@ def upload_file():
             return redirect(url_for('download_file', name=filename))
     return ' ' 
     """
-
-"""def upload_file():
+@app.route('/img_upload', methods=['POST'])
+def upload_file():
     try:
         file = request.files['file']
         print(file.filename)
@@ -91,7 +91,7 @@ def upload_file():
     except RequestEntityTooLarge:
         return 'File is larger than the 16MB limit.'
   
-    return jsonify({'yo':'upload mregel'})"""
+    return jsonify({'yo':'upload mregel'})
 #--------------------------------------------------
 @app.route("/", methods=["GET"])
 def index():
