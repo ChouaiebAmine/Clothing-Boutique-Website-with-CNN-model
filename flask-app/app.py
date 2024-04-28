@@ -48,38 +48,14 @@ picturesRandomizer.get_clothing_piece(classes)
 def index():
     return jsonify()"""
 #--------------------------------------------------
-
-"""def upload_file():
-    if request.method == 'POST':
-        f = request.files['file']
-        f.save(f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename))))
-    return 'file uploaded successfully'"""
-"""def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            print('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        if file.filename == '':
-            print('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('download_file', name=filename))
-    return ' ' 
-    """
 @app.route('/img_upload', methods=['POST'])
 
 def upload_file():
     if request.method == 'POST':
-
-        if 'file' not in request.files:
+        if 'image' not in request.files:
             return 'No file part'
-        file = request.files['file']
+        file = request.files['image']
+        print('bruh')
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
         if file.filename == '':

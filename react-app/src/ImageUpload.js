@@ -45,6 +45,7 @@ const ImageUpload = ({ theme }) => {
           id="upload-input"
           type="file"
           accept="image/*"
+          name='file'
           onChange={handleImageChange}
           style={{ display: 'none' }}
         />
