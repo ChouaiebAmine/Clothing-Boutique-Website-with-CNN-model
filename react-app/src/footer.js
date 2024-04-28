@@ -13,7 +13,7 @@ const Footer = () => {
         <div id="container">
           <div id="cont">
             <div className="footer_center">
-              <h3>hello vro 👅</h3>
+              <h3>Bye Bye 🤫🧏‍♂️ </h3>
             </div>
           </div>
         </div>

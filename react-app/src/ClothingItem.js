@@ -9,8 +9,7 @@ const ClothingContainer = styled.div`
   padding: 10px;
   margin-right: 100px;
   margin-left: 100px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+
   transition: transform 0.2s ease;
   cursor: pointer;
   position: relative;
@@ -25,6 +24,7 @@ const Image = styled.img`
   height: 300px;
   object-fit : cover;
   border: 1px solid black;
+  border-radius : 5px;
 `;
 
 const Text = styled.p`
@@ -37,8 +37,8 @@ const PopupContainer = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')}; /* Adjust background color based on theme */
-  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')}; /* Adjust text color based on theme */
+  background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')}; 
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')}; 
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

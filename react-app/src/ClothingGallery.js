@@ -5,14 +5,14 @@ import styled from 'styled-components';
 const ImageContainer = styled.div`
     background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
     color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
-    padding-top: 90px; /* Adjust as needed */
+    padding-top: 90px; 
 `;
 
 const ClothingList = styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Adjust the gap between items */
-    justify-content: center; /* Align items in the center */
+    gap: 20px; 
+    justify-content: center; 
 `;
 const clothingData = [
   { id: 1, imageUrl: "http://127.0.0.1:5000/image/img(1).jpg", name: 'Clothing Item 1' },
@@ -24,7 +24,7 @@ const clothingData = [
   { id: 7, imageUrl: "http://127.0.0.1:5000/image/img(7).jpg", name: 'Clothing Item 7' },
   { id: 8, imageUrl: "http://127.0.0.1:5000/image/img(8).jpg", name: 'Clothing Item 8' },
   { id: 9, imageUrl: "http://127.0.0.1:5000/image/img(9).jpg", name: 'Clothing Item 9' },
-  { id: 10, imageUrl: "http://127.0.0.1:5000/image/img(10).jpg", name: 'Clothing Item 10' },
+  
 ];
 
 const ClothingGallery = ({ theme }) => {

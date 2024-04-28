@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { FaSearch } from 'react-icons/fa';
 
 const SearchContainer = styled.div`
   background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
@@ -108,10 +109,7 @@ const SearchBar = ({ theme, onThemeChange }) => {
           placeholder="Search..."
           onFocus={() => setShowSuggestions(true)}
         />
-        <SearchIcon
-          className="fas fa-search"
-          onClick={() => setShowSuggestions(true)}
-        />
+        <FaSearch/>
         {showSuggestions && (
           <SuggestionsContainer ref={suggestionsContainerRef} theme={theme}>
             {filteredOptions.map(option => (
