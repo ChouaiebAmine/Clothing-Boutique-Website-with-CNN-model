@@ -40,6 +40,7 @@ const ImageUpload = ({ theme }) => {
 
   return (
     <ImageContainer theme={theme}>
+      <p>make sure the image doesn't have anything in the background and the clothing piece is centered</p>
       <div className="image-upload-container">
         <input
           id="upload-input"
