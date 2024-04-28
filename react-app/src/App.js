@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, /*useEffect*/  } from 'react';
 import Header from './Header';
 import DisplayMode from './display_mode';
 import Footer from './footer';
 import SearchBar from './searchbar';
 import ImageUpload from './ImageUpload';
 import './App.css';
-import axios from 'axios'
+//import axios from 'axios'
 import ClothingGallery from './ClothingGallery';
 
 
@@ -30,9 +30,9 @@ function App() {
   };
 
 
-  const [data, setData] = useState(0)
+  /*const [data, setData] = useState(0)
   const [array, setArray] = useState([]);
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]);*/
 
 
   /*useEffect(() => {
