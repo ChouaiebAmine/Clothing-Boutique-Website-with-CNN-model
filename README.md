@@ -1,1 +1,1 @@
-# Clothing Boutiiiique Web App
+# Clothing Boutique Web App
