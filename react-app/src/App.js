@@ -7,6 +7,7 @@ import Footer from './footer';
 import SearchBar from './searchbar';
 import ImageUpload from './ImageUpload';
 import './App.css';
+import styled from 'styled-components';
 //import axios from 'axios'
 import ClothingGallery from './ClothingGallery';
 
@@ -23,6 +24,16 @@ const clothingData = [
   { id: 9, imageUrl: "http://127.0.0.1:5000/image/img(9).jpg", name: 'Clothing Item 9' },
 ];
 
+const Background = styled.div`
+  background-size: cover;
+  filter: blur(10px); 
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; 
+`;
 function App() {
   const [theme, setTheme] = useState('light');
 
@@ -50,14 +61,15 @@ function App() {
 
   return (
     <div>
+      <Background/>
       <Header theme={theme} />
       <SearchBar theme={theme} />
       <ImageUpload theme={theme} />
-      <ClothingGallery theme={theme} clothingData={clothingData} />
+      <ClothingGallery theme={theme} />
       <div className={`app ${theme}`}>
-        <Container>
+        <Container className='col-lg-4 col-md-6 col-sm-8 col-xs-12'>
           <Row className="justify-content-center">
-            <Col lg={6} md={8} sm={12} xs ={12}>
+            <Col lg={4} md={6} sm={8} xs={12}>
               <div className="theme-toggler-container">
                 <DisplayMode theme={theme} toggleTheme={toggleTheme} />
               </div>
@@ -67,16 +79,7 @@ function App() {
       </div>
       <Footer />
     </div>
-
-    /*
-      {(typeof data.test) === 'undefined' ? (
-        <p>wait</p>
-      ) : (
-        data.test.map((wa, i) => (
-          <p key={i}>{wa}</p>
-        ))
-      )} */
   );
-};
+}
 
 export default App;

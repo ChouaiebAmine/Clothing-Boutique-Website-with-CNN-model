@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 
 const SearchContainer = styled.div`
-  background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
-  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+  background-color: ${({ theme }) => (theme === 'light' ? '#EBDBCA' : '#222222')};
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#EBDBCA')};
   padding: 60px;
   text-align: center;
   position: relative;

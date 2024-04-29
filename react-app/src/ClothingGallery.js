@@ -3,8 +3,9 @@ import ClothingItem from './ClothingItem';
 import styled from 'styled-components';
 
 const ImageContainer = styled.div`
-    background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
-    color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+    
+    background-color: ${({ theme }) => (theme === 'light' ? '#EBDBCA' : '#222222')};
+    color: ${({ theme }) => (theme === 'light' ? '#000000' : '#EBDBCA')};
     padding-top: 90px; 
 `;
 
