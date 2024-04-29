@@ -28,3 +28,4 @@ yarn-error.log*
 /react-app/node_modules
 /flask-app/static/images/grid images
 /flask-app/uploads
+/flask-app/static/images/grid images/img(1).jpg
