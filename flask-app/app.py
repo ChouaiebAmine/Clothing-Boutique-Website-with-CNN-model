@@ -98,6 +98,7 @@ def index():
 #-----------------------------------------------------
 @app.route("/predicted_pics/<predicted_class>", methods=["GET","POST"])
 def predicted_pics(predicted_class):
+    print(predicted_class)
     return predicted_class
     #picturesRandomizer.make_predicted_pics(predicted_class)
     """return jsonify(
