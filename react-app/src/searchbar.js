@@ -28,9 +28,9 @@ const SearchIcon = styled.i`
 
 const SuggestionsContainer = styled.div`
   position: absolute;
-  top: calc(100% + 10px); /* Position below the search bar */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center horizontally */
+  top: calc(100% + 10px); 
+  left: 50%;
+  transform: translateX(-50%); 
   width: ${({ searchBarWidth }) => searchBarWidth}px;
   max-height: 200px;
   overflow-y: auto;
