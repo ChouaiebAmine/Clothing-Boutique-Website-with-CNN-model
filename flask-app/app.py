@@ -14,8 +14,6 @@ Request.max_form_parts = 5000
 import os
 import picturesRandomizer,picturePrediction
 from flask_cors import CORS
-from io import BytesIO
-from werkzeug.exceptions import RequestEntityTooLarge
 from werkzeug.utils import secure_filename
 # Create a Flask application instance
 app = Flask(__name__)
