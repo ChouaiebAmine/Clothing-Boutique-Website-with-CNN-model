@@ -41,3 +41,4 @@ Contributors names and Github links
 [@MohamedAmineChouaieb](https://github.com/ChouaiebAmine)
 
 [@Amen-Haj-Brahim](https://github.com/Amen-Haj-Brahim)
+</span>
