@@ -1,7 +1,8 @@
 <span style="font-size:20px;">
 
 <span align="center"> 
-# Clothing Web App with CNN </span>
+# Clothing Web App with CNN 
+</span>
  Clothing web app containing some clothing products and a field where you can send a picture of 
 ## Getting Started
 ### Dependencies
