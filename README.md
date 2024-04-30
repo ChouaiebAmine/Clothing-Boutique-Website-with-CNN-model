@@ -54,7 +54,7 @@ The dataset contains 70000 pictures of clothing pieces and their classes are:
 #### 8 => Bag
 #### 9 => Ankle boot
 ##
-#Web app part
+# Web app part
 <img src="https://skillicons.dev/icons?i=flask" height="40" alt="flask logo"  />
 <img width="10" />
 <img src="https://skillicons.dev/icons?i=react" height="40" alt="react logo"  />
