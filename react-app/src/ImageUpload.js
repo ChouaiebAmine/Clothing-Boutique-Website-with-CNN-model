@@ -1,10 +1,58 @@
 import React, { useState } from 'react';
-import './ImageUpload.css';
-import styled from "styled-components"
+import styled from 'styled-components';
 import axios from 'axios';
+
 const ImageContainer = styled.div`
-    background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
-    color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+  background-color: ${({ theme }) => (theme === 'light' ? '#EBDBCA' : '#222222')};
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#EBDBCA')};
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const ImageUploadContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const ImageUploadDropzone = styled.label`
+  border: 2px dashed ${({ theme }) => (theme === 'light' ? '#EBDBCA' : '#222222')};
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: ${({ theme }) => (theme === 'light' ? '#555555' : '#dddddd')};
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+`;
+
+const UploadMessage = styled.p`
+  margin-top: 10px;
+  font-size: 14px;
+  color: ${({ theme }) => (theme === 'light' ? '#222222' : '#ffffff')};
+`;
+
+const ConfirmButton = styled.button`
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: ${({ theme }) => (theme === 'light' ? '#007bff' : '#ffffff')};
+  color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#007bff')};
+  border: 2px solid ${({ theme }) => (theme === 'light' ? '#007bff' : '#ffffff')};
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: ${({ theme }) => (theme === 'light' ? '#0056b3' : '#cccccc')};
+    color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#007bff')};
+  }
 `;
 
 const ImageUpload = ({ theme }) => {
@@ -26,9 +74,9 @@ const ImageUpload = ({ theme }) => {
   };
 
   const handleConfirmUpload = () => {
-    const formdata = new FormData();
-    formdata.append('image', image);
-    axios.post('http://localhost:5000/img_upload', formdata)
+    const formData = new FormData();
+    formData.append('image', image);
+    axios.post('http://localhost:5000/img_upload', formData)
       .then(res => {
         console.log(res);
       })
@@ -40,8 +88,7 @@ const ImageUpload = ({ theme }) => {
 
   return (
     <ImageContainer theme={theme}>
-      <p>make sure the image doesn't have anything in the background and the clothing piece is centered</p>
-      <div className="image-upload-container">
+      <ImageUploadContainer>
         <input
           id="upload-input"
           type="file"
@@ -50,27 +97,25 @@ const ImageUpload = ({ theme }) => {
           onChange={handleImageChange}
           style={{ display: 'none' }}
         />
-        <label
+        <ImageUploadDropzone
           htmlFor="upload-input"
-          className="image-upload-dropzone"
+          theme={theme}
           onDrop={handleImageDrop}
           onDragOver={handleDragOver}
         >
           {!image && (
-            <p>Drag & drop or click to upload an image</p>
+            <UploadMessage theme = {theme}>Select or drop an image here</UploadMessage>
           )}
           {image && (
-            <img src={URL.createObjectURL(image)} alt="Selected" style={{ maxWidth: '100%' }} />
+            <img src={URL.createObjectURL(image)} alt="Selected" />
           )}
-        </label>
+        </ImageUploadDropzone>
         {image && (
-          <button onClick={handleConfirmUpload}>Confirm Upload</button>
+          <ConfirmButton onClick={handleConfirmUpload}>Confirm Upload</ConfirmButton>
         )}
-      </div>
+      </ImageUploadContainer>
     </ImageContainer>
   );
 };
-  
+
 export default ImageUpload;
-
-

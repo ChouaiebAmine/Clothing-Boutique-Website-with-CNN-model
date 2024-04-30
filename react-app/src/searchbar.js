@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { FaSearch } from 'react-icons/fa';
 
 const SearchContainer = styled.div`
-  background-color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#222222')};
-  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
+  background-color: ${({ theme }) => (theme === 'light' ? '#EBDBCA' : '#222222')};
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#EBDBCA')};
   padding: 60px;
   text-align: center;
   position: relative;
@@ -27,9 +28,9 @@ const SearchIcon = styled.i`
 
 const SuggestionsContainer = styled.div`
   position: absolute;
-  top: calc(100% + 10px); /* Position below the search bar */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center horizontally */
+  top: calc(100% + 10px); 
+  left: 50%;
+  transform: translateX(-50%); 
   width: ${({ searchBarWidth }) => searchBarWidth}px;
   max-height: 200px;
   overflow-y: auto;
@@ -108,10 +109,7 @@ const SearchBar = ({ theme, onThemeChange }) => {
           placeholder="Search..."
           onFocus={() => setShowSuggestions(true)}
         />
-        <SearchIcon
-          className="fas fa-search"
-          onClick={() => setShowSuggestions(true)}
-        />
+        <FaSearch/>
         {showSuggestions && (
           <SuggestionsContainer ref={suggestionsContainerRef} theme={theme}>
             {filteredOptions.map(option => (

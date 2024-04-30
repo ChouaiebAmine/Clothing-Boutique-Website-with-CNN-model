@@ -1,10 +1,13 @@
 import React, { useState, /*useEffect*/  } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col } from 'react-bootstrap';
 import Header from './Header';
 import DisplayMode from './display_mode';
 import Footer from './footer';
 import SearchBar from './searchbar';
 import ImageUpload from './ImageUpload';
 import './App.css';
+import styled from 'styled-components';
 //import axios from 'axios'
 import ClothingGallery from './ClothingGallery';
 
@@ -19,9 +22,18 @@ const clothingData = [
   { id: 7, imageUrl: "http://127.0.0.1:5000/image/img(7).jpg", name: 'Clothing Item 7' },
   { id: 8, imageUrl: "http://127.0.0.1:5000/image/img(8).jpg", name: 'Clothing Item 8' },
   { id: 9, imageUrl: "http://127.0.0.1:5000/image/img(9).jpg", name: 'Clothing Item 9' },
-  { id: 10, imageUrl: "http://127.0.0.1:5000/image/img(10).jpg", name: 'Clothing Item 10' },
 ];
 
+const Background = styled.div`
+  background-size: cover;
+  filter: blur(10px); 
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1; 
+`;
 function App() {
   const [theme, setTheme] = useState('light');
 
@@ -49,35 +61,25 @@ function App() {
 
   return (
     <div>
+      <Background/>
       <Header theme={theme} />
       <SearchBar theme={theme} />
       <ImageUpload theme={theme} />
-      {<ClothingGallery theme={theme} clothingData={clothingData} />}
+      <ClothingGallery theme={theme} />
       <div className={`app ${theme}`}>
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6 col-md-8">
-              <div className="theme-toggler-container ">
+        <Container className='col-lg-4 col-md-6 col-sm-8 col-xs-12'>
+          <Row className="justify-content-center">
+            <Col lg={4} md={6} sm={8} xs={12}>
+              <div className="theme-toggler-container">
                 <DisplayMode theme={theme} toggleTheme={toggleTheme} />
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
-      <div>
-      </div >
       <Footer />
     </div>
-
-    /*
-      {(typeof data.test) === 'undefined' ? (
-        <p>wait</p>
-      ) : (
-        data.test.map((wa, i) => (
-          <p key={i}>{wa}</p>
-        ))
-      )} */
   );
-};
+}
 
 export default App;
