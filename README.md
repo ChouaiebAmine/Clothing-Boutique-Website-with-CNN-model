@@ -5,7 +5,7 @@
 # Clothing Web App with CNN 
 </div>
 
-##
+
 <div style="font-size:25px;">
 
 ## Description
