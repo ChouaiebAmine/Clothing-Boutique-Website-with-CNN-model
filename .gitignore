@@ -26,22 +26,6 @@ yarn-error.log*
 /fashion-mnist_train.csv
 /flask-app/__pycache__
 /react-app/node_modules
-/flask-app/static/images/grid images
 /flask-app/uploads
-/flask-app/static/images/grid images/img(1).jpg
-flask-app/static/images/grid images/img(1).jpg
-flask-app/static/images/grid images/img(10).jpg
-flask-app/static/images/grid images/img(2).jpg
-flask-app/static/images/grid images/img(3).jpg
-flask-app/static/images/grid images/img(4).jpg
-flask-app/static/images/grid images/img(5).jpg
-flask-app/static/images/grid images/img(6).jpg
-flask-app/static/images/grid images/img(7).jpg
-flask-app/static/images/grid images/img(8).jpg
-flask-app/static/images/grid images/img(9).jpg
-react-app/node_modules/.cache/.eslintcache
-react-app/node_modules/.cache/default-development/0.pack
-react-app/node_modules/.cache/default-development/1.pack
-react-app/node_modules/.cache/default-development/4.pack
-react-app/node_modules/.cache/default-development/index.pack
-react-app/node_modules/.cache/default-development/index.pack.old
+/flask-app/static/images
+/flask-app/__pycache__
