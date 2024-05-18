@@ -1,4 +1,4 @@
-import React, { useState, /*useEffect*/  } from 'react';
+import React, { useState, /*useEffect*/ } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import Header from './Header';
@@ -61,7 +61,7 @@ function App() {
 
   return (
     <div>
-      <Background/>
+      <Background />
       <Header theme={theme} />
       <SearchBar theme={theme} />
       <ImageUpload theme={theme} />

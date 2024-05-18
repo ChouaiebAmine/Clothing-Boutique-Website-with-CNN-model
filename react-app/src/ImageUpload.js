@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
+
+let uploaded = false;
 const ImageContainer = styled.div`
   background-color: ${({ theme }) => (theme === 'light' ? '#EBDBCA' : '#222222')};
   color: ${({ theme }) => (theme === 'light' ? '#000000' : '#EBDBCA')};
@@ -104,15 +106,16 @@ const ImageUpload = ({ theme }) => {
           onDragOver={handleDragOver}
         >
           {!image && (
-            <UploadMessage theme = {theme}>Select or drop an image here</UploadMessage>
+            <UploadMessage theme={theme}>Select or drop an image here</UploadMessage>
           )}
           {image && (
             <img src={URL.createObjectURL(image)} alt="Selected" />
           )}
         </ImageUploadDropzone>
         {image && (
-          <ConfirmButton onClick={handleConfirmUpload}>Confirm Upload</ConfirmButton>
+          <ConfirmButton onClick={() => { handleConfirmUpload(); uploaded = true }}>Confirm Upload</ConfirmButton>
         )}
+        {uploaded && (<ConfirmButton onClick={() => { window.location.reload(); uploaded = false }}> Load Recommendations </ConfirmButton>)}
       </ImageUploadContainer>
     </ImageContainer>
   );
