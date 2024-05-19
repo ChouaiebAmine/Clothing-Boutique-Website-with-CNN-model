@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
 import axios from 'axios';
 
+let uploaded=false;
 
 const SearchButton = styled.button`
   padding: 10px 20px;
@@ -140,9 +141,10 @@ const SearchBar = ({ theme }) => {
           placeholder="Search..."
           onFocus={() => setShowSuggestions(true)}
         />
-        <SearchButton theme={theme} onClick={()=>{handleConfirmSelection(); window.location.reload()}} >
+        <SearchButton theme={theme} onClick={()=>{handleConfirmSelection(); uploaded=true}} >
           Confirm
         </SearchButton>
+        {uploaded && (<SearchButton onClick={() => { window.location.reload(); uploaded = false }}> Load Recommendations</SearchButton>)}
         {showSuggestions && (
           <SuggestionsContainer ref={suggestionsContainerRef} theme={theme}>
             {filteredOptions.map(option => (
