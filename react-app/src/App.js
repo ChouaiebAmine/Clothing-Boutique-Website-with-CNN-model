@@ -35,6 +35,11 @@ const Background = styled.div`
   z-index: -1; 
 `;
 function App() {
+
+  const handleOptionSelect = (selectedOption) => {
+    // Handle the selected option here
+    console.log("Selected option:", selectedOption);
+  };
   const [theme, setTheme] = useState('light');
 
   const toggleTheme = () => {
@@ -63,7 +68,7 @@ function App() {
     <div>
       <Background />
       <Header theme={theme} />
-      <SearchBar theme={theme} />
+      <SearchBar theme={theme} onOptionSelect={handleOptionSelect} />
       <ImageUpload theme={theme} />
       <ClothingGallery theme={theme} />
       <div className={`app ${theme}`}>
