@@ -8,7 +8,7 @@ const Header = ({ theme }) => {
   useEffect(() => {
     // Check if it s Friday
     const today = new Date();
-    const isFriday = today.getDay() === 1; // Friday is represented by 5 
+    const isFriday = today.getDay() === 5; // Friday is represented by 5 
 
  
     const mode = localStorage.getItem('theme');
