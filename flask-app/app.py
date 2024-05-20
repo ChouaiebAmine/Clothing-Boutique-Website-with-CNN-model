@@ -74,6 +74,14 @@ def index():
     return jsonify()"""
 
 
+@app.route("/predicted_pic", methods=["POST"])
+def predict_pic():
+    predict_class = request.json.get("predicted_class")
+    if predict_class is None:
+        return jsonify({"error": "Predicted class not provided"}), 400
+    
+    picturesRandomizer.make_predicted_pics(predict_class)
+    return jsonify({"message": "Images generated successfully"}), 200
 # --------------------------------------------------
 @app.route("/img_upload", methods=["POST"])
 def upload_file():
@@ -111,7 +119,6 @@ def predicted_pics(predicted_class):
     print(predicted_class, "zkjqshdqshdjk")
     picturesRandomizer.make_predicted_pics(classes[int(predicted_class)])
     return redirect(url_for("image"))
-
 # --------------------------------------------------
 @app.route("/image/", methods=["GET"])
 def image():

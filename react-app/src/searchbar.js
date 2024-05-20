@@ -1,7 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
+import axios from 'axios';
 
+let uploaded=false;
+
+const SearchButton = styled.button`
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: ${({ theme }) => (theme === 'light' ? '#007bff' : '#ffffff')};
+  color: ${({ theme }) => (theme === 'light' ? '#ffffff' : '#007bff')};
+  cursor: pointer;
+`;
 const SearchContainer = styled.div`
   background-color: ${({ theme }) => (theme === 'light' ? '#EBDBCA' : '#222222')};
   color: ${({ theme }) => (theme === 'light' ? '#000000' : '#EBDBCA')};
@@ -56,8 +67,7 @@ const options = [
   'Shirt',
   'Bag',
 ];
-
-const SearchBar = ({ theme, onThemeChange }) => {
+const SearchBar = ({ theme }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredOptions, setFilteredOptions] = useState([]);
@@ -86,6 +96,15 @@ const SearchBar = ({ theme, onThemeChange }) => {
   const handleInputChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
+
+    const options = [
+      'T Shirt',
+      'Trouser',
+      'Dress',
+      'Sandal',
+      'Shirt',
+      'Bag',
+    ];
     const filtered = options.filter(option =>
       option.toLowerCase().includes(value.toLowerCase())
     );
@@ -95,6 +114,19 @@ const SearchBar = ({ theme, onThemeChange }) => {
   const handleSelectOption = (option) => {
     setSearchTerm(option);
     setShowSuggestions(false);
+  };
+
+  const handleConfirmSelection = () => {
+    // Send selected class name to backend
+    axios.post('http://localhost:5000/predicted_pic', { predicted_class: searchTerm })
+      .then(res => {
+        console.log(res);
+        // Handle response from backend if needed
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle error if needed
+      });
   };
 
   return (
@@ -109,7 +141,10 @@ const SearchBar = ({ theme, onThemeChange }) => {
           placeholder="Search..."
           onFocus={() => setShowSuggestions(true)}
         />
-        <FaSearch/>
+        <SearchButton theme={theme} onClick={()=>{handleConfirmSelection(); uploaded=true}} >
+          Confirm
+        </SearchButton>
+        {uploaded && (<SearchButton onClick={() => { window.location.reload(); uploaded = false }}> Load Recommendations</SearchButton>)}
         {showSuggestions && (
           <SuggestionsContainer ref={suggestionsContainerRef} theme={theme}>
             {filteredOptions.map(option => (
