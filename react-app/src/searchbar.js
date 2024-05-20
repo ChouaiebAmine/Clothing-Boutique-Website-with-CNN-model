@@ -98,7 +98,7 @@ const SearchBar = ({ theme }) => {
     setSearchTerm(value);
 
     const options = [
-      'T-shirt/top',
+      'T Shirt',
       'Trouser',
       'Dress',
       'Sandal',
